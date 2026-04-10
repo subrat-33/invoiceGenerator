@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Manager</title>
+  <meta name="description" content="A sophisticated, intuitive billing system for creating professional invoices.">
+
+  <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation bar -->
+   <header class="app-header">
+    <div class="header-left">
+      <div class="logo">
+        <i data-lucide="file-text" class="logo-icon"></i>
+        <h1>Invoice Manager</h1>
+      </div>
+      <span class="status-badge status-draft" id="statusBadge">Draft</span>
+    </div>
+    <div class="header-right">
+      <div class="currency-selector">
+        <select id="currency" aria-label="Currency">
+          <option value="INR" data-symbol="₹">INR (₹)</option>
+          <option value="USD" data-symbol="$">USD ($)</option>
+          <option value="EUR" data-symbol="€">EUR (€)</option>
+          <option value="GBP" data-symbol="£">GBP (£)</option>
+        </select>
+      </div>
+    </div>
+   </header>
+
+   <main class="main-container">
+    <!-- Form Section -->
+     <div class="form-panel">
+      <!-- Customer Details Card -->
+       <section class="card form-section" id="customer-details">
+        <div class="form-grid">
+
+          <div class="formgroup">
+            <label for="billFromName">Your Name / Company
+            <span class="required">*</span></label>
+            <input type="text" id="billFormName" placeholder="e.g. ABC Corp" required>
+          </div>
+
+          <div class="formgroup">
+            <label for="billFromAddress">Your Address</label>
+            <input type="text" id="billFormAddress" placeholder="e.g. 123 street, City, Country" required>
+          </div>
+
+          <div class="formgroup">
+            <label for="billFromName">Bill To (Client)
+            <span class="required">*</span></label>
+            <input type="text" id="billToName" placeholder="e.g. Client Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="billToEmail">Client Email</label>
+            <input type="email" id="billToEmail" placeholder="e.g. client@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="billToPhone">Client Phone</label>
+            <input type="tel" id="billToPhone" placeholder="e.g. +1 234 567 890">
+          </div>
+
+          <div class="form-group">
+            <label for="invoiceDate">Invoice Date <span class="required">*</span></label>
+            <input type="date" id="invoiceDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input type="date" id="dueDate">
+          </div>
+
+          <div class="form-group">
+            <label for="invoiceNumber">Invoice Number <span class="required">*</span></label>
+            <input type="text" id="invoiceNumber" placeholder="e.g. INV-0001" required>
+        </div>
+
+        <div class="form-group form-group-full">
+          <label for="billToAddress">Client Billing Address <span class="required">*</span></label>
+          <input type="text" id="billToAddress" placeholder="e.g. 456 Client street, City, Country" required>
+        </div>
+        </div>
+       </section>
+
+       <!-- Items Card -->
+     </div>
+   </main>
+</body>
+</html>
